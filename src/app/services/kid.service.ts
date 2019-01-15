@@ -14,18 +14,17 @@ export class KidService {
 
   constructor(public db: AngularFirestore) {
     // this.Kids = db.collection('Kids').valueChanges();
+  }
+
+  GetItem() {
     this.KidsCollection = this.db.collection('Kids', ref => ref.orderBy('id', 'asc'));
 
-    this.Kids = this.KidsCollection.snapshotChanges().pipe(map(changes =>  {
+    this.Kids = this.KidsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as KID;
         data.key = a.payload.doc.id;
         return data;
-      });
-    }));
-  }
-
-  GetItem() {
+      }); }));
     return this.Kids;
   }
 

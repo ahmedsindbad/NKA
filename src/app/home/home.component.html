@@ -1,6 +1,17 @@
-<div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-    <img width="300" alt="Angular Logo" src="../assets/img/nobles.png">
+
+<form>
+  <div class="col-auto" style="text-align: center">
+    <img src="../../assets/img/nobles.png" width="150" height="200"><span>
+    <img src="../../assets/img/loading.gif" width="300" height="250"></span>
+    <label class="sr-only" for="inlineFormInputGroup">Kid Code</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Code</div>
+      </div>
+      <input [(ngModel)] = "CodeKid" name = "CodeKid" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Kid Code">
+    </div>
   </div>
+  <div class="col-auto">
+    <button type="button" class="btn btn-success mb-2" (click)="onRoutActivity()">Get</button>
+  </div>
+</form>

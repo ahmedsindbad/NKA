@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 
-//Fierbase
+// Fierbase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-//Services
+// Services
 import { KidService } from './services/kid.service';
 
-//Components
+// Components
 import { AppComponent } from './app.component';
 import { AddkidComponent } from './kid/addkid/addkid.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,16 +28,17 @@ import { NewkidsListComponent } from './newkid/newkids-list/newkids-list.compone
 import { NewkidDetailComponent } from './newkid/newkid-detail/newkid-detail.component';
 import { NewkidFormComponent } from './newkid/newkid-form/newkid-form.component';
 
-const routes:Routes = [
-  { path: '',redirectTo:'home' ,pathMatch:'full' },
-  { path: 'home',component:HomeComponent },
-  { path: 'application',component:ApplicationComponent },
-  { path: 'learn',component:LearnComponent },
-  { path: 'login',component:LoginComponent },
-  { path: 'register',component:RegisterComponent },
-  { path: 'addkid',component:AddkidComponent },
-  { path: 'viewkids',component:ViewkidsComponent }
-]
+const routes: Routes = [
+  { path: '', redirectTo: 'home' , pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'viewkids', component: HomeComponent },
+  { path: 'viewkids/:id', component: ViewkidsComponent },
+  { path: 'application', component: ApplicationComponent },
+  { path: 'learn', component: LearnComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'addkid', component: AddkidComponent }
+];
 
 
 @NgModule({
