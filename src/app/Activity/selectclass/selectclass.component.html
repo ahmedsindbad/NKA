@@ -1,0 +1,13 @@
+<div class="container"> 
+    <br><br><br><br><br> 
+  <label>Please select your class</label>
+<div class="input-group">
+    <select name="selectedValue" class="form-control" id="selectedValue" [(ngModel)]='selectedValue'>
+      <option [ngValue]="null">Choose Class</option>
+      <option *ngFor="let class of classes" [ngValue]="class.id">{{ class.Name }}</option>
+    </select>
+    <div class="invalid-feedback">
+      Please provide a valid Class Name.
+    </div>
+  </div>
+</div>

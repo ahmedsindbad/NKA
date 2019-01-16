@@ -13,31 +13,34 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AddkidComponent implements OnInit {
 
-  //variables
+  // variables
 
   kids: KID = {
     id: Math.random().toString().substr(2, 4),
-    Name: null,
-    BirthDay: null,
+    key: null,
     Address: null,
-    FatherName: null,
-    FatherJop: null,
-    FatherPhone: null,
-    MotherName: null,
-    MotherJop: null,
-    MotherPhone: null,
-    RecipientName: null,
-    RecipientPhone: null,
-    Note: null,
-    DepartName: null,
-    ClassName: null
+    Archived: null,
+    BirthDay: null,
+    ClassID: null,
+    DepartID: null,
+    JoiningDate: null,
+    KCGUID: null,
+    KIDGUID: null,
+    Languge: null,
+    Name: null,
+    Nationality: null,
+    Phone: null,
+    Pic: null,
+    Religion: null,
+    TimeLeave: null,
+    WaitList: null
   };
   Departs = [
     { Name: 'Main Deprt' },
     { Name: 'Naser Depart' },
     { Name: 'Morad Depart' }
   ];
-  //const
+  // const
   constructor(public kidService: KidService, public router: Router) {
 
   }
@@ -51,20 +54,23 @@ export class AddkidComponent implements OnInit {
       this.kidService.addkid(this.kids);
       this.kids = {
         id: Math.random().toString().substr(2, 4),
-        Name: null,
-        BirthDay: null,
+        key: null,
         Address: null,
-        FatherName: null,
-        FatherJop: null,
-        FatherPhone: null,
-        MotherName: null,
-        MotherJop: null,
-        MotherPhone: null,
-        RecipientName: null,
-        RecipientPhone: null,
-        Note: null,
-        DepartName: null,
-        ClassName: null
+        Archived: null,
+        BirthDay: null,
+        ClassID: null,
+        DepartID: null,
+        JoiningDate: null,
+        KCGUID: null,
+        KIDGUID: null,
+        Languge: null,
+        Name: null,
+        Nationality: null,
+        Phone: null,
+        Pic: null,
+        Religion: null,
+        TimeLeave: null,
+        WaitList: null
       };
       this.router.navigate(['viewkids']);
     } else {
