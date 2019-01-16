@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Services
 import { KidService } from './services/kid.service';
 import { ClassService } from './services/class.service';
+import { ActiveService } from './services/active.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { NewkidsListComponent } from './newkid/newkids-list/newkids-list.compone
 import { NewkidDetailComponent } from './newkid/newkid-detail/newkid-detail.component';
 import { NewkidFormComponent } from './newkid/newkid-form/newkid-form.component';
 import { SelectclassComponent } from './Activity/selectclass/selectclass.component';
+import { ActiveformComponent } from './Activity/activeform/activeform.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' , pathMatch: 'full' },
@@ -40,7 +42,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'addkid', component: AddkidComponent },
-  { path: 'selectclass', component: SelectclassComponent }
+  { path: 'selectclass', component: SelectclassComponent },
+  { path: 'selectclass/:CGUID', component: ActiveformComponent }
 ];
 
 
@@ -59,7 +62,8 @@ const routes: Routes = [
     NewkidsListComponent,
     NewkidDetailComponent,
     NewkidFormComponent,
-    SelectclassComponent
+    SelectclassComponent,
+    ActiveformComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,7 @@ const routes: Routes = [
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [KidService, ClassService],
+  providers: [KidService, ClassService, ActiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

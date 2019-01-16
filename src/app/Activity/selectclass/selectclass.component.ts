@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CLASS } from '../CLASS';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ClassService} from '../../services/class.service';
-import { FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ClassService } from '../../services/class.service';
 
 @Component({
   selector: 'app-selectclass',
@@ -12,9 +11,10 @@ import { FormArray } from '@angular/forms';
 export class SelectclassComponent implements OnInit {
 
   classes: CLASS[];
-  selectedValue: null;
+  selectedValue: any = null;
+  errorValidate: any = 'select one class to add activity to it.';
   // const
-  constructor(public classService: ClassService, private route: ActivatedRoute) {
+  constructor(public classService: ClassService, public router: Router) {
     // this.route.paramMap.subscribe((param: ParamMap) => {
     //   this.id = param.get('id');
     // });
@@ -26,5 +26,13 @@ export class SelectclassComponent implements OnInit {
       console.log(this.classes);
     });
   }
-
+  onSubmit() {
+    if (this.selectedValue === null) {
+      this.errorValidate = 'لابد من اختيار الفصل أولا';
+    } else {
+      this.errorValidate = 'select one class to add activity to it.';
+      alert(this.selectedValue);
+      this.router.navigate(['/selectclass', this.selectedValue]);
+    }
+  }
 }

@@ -1,0 +1,20 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container" style="text-align: center">
+    <h3>Select kids</h3><hr />
+    <div class="[ form-group ]" *ngFor="let kid of KIDS">
+        <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success" autocomplete="off" />
+        <div class="[ btn-group ]">
+            <label for="fancy-checkbox-success" class="[ btn btn-success ]">
+                <span class="[ glyphicon glyphicon-ok ]"></span>
+                <span> </span>
+            </label>
+            <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
+                {{kid.Name}}
+            </label>
+        </div>&nbsp;
+        <button class="btn btn-success" type="button">Add eat</button>
+    </div><hr />
+</div>

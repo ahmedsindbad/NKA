@@ -10,22 +10,21 @@ import { map } from 'rxjs/operators/index';
 export class ClassService {
 
   ClassesCollection: AngularFirestoreCollection<CLASS>;
-  Classes: Observable<any>;
-
+  Classes: Observable<CLASS[]>;
+  selectedValue: any;
   constructor(public db: AngularFirestore) {
-
+    this.ClassesCollection = this.db.collection<CLASS>('Classes');
+    this.Classes = this.ClassesCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as CLASS;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
    }
 
 
   GetItem() {
-    this.ClassesCollection = this.db.collection('Classes', ref => ref.orderBy('id', 'asc'));
-
-    this.Classes = this.ClassesCollection.snapshotChanges().pipe(map(changes => {
-      return changes.map(a => {
-        const data = a.payload.doc.data() as CLASS;
-        data.key = a.payload.doc.id;
-        return data;
-      }); }));
     return this.Classes;
   }
 }

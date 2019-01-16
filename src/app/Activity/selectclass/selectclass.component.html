@@ -1,13 +1,21 @@
-<div class="container"> 
-    <br><br><br><br><br> 
-  <label>Please select your class</label>
-<div class="input-group">
-    <select name="selectedValue" class="form-control" id="selectedValue" [(ngModel)]='selectedValue'>
-      <option [ngValue]="null">Choose Class</option>
-      <option *ngFor="let class of classes" [ngValue]="class.id">{{ class.Name }}</option>
-    </select>
-    <div class="invalid-feedback">
-      Please provide a valid Class Name.
+<div class="card text-center">
+  <div class="card-header">
+    All classes.
+  </div>
+  <form>
+  <div class="card-body">
+    <div class="input-group">
+      <select class="custom-select" id="selectedValue" name="selectedValue" required [(ngModel)]= "selectedValue">
+        <option [ngValue]="null" selected>......اختر</option>
+        <option [ngValue]="class.CGUID" *ngFor="let class of classes">{{class.ClassName}}</option>
+      </select>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)= "onSubmit()">Selected</button>
+      </div>
     </div>
+  </div>
+</form>
+  <div class="card-footer text-muted">
+    {{errorValidate}}
   </div>
 </div>

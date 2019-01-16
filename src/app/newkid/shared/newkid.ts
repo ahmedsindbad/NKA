@@ -3,7 +3,7 @@ export class Newkid {
     KIDGUID: string;
     Name: string;
     Phone: string;
-    KCGUID : string;
+    KCGUID: string;
     DepartID: string;
     Pic: string;
     JoiningDate: string;
