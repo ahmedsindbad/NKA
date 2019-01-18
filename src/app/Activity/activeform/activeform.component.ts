@@ -11,7 +11,7 @@ import { ActiveService } from '../../services/active.service';
 export class ActiveformComponent implements OnInit {
   KIDS: KID[];
   CGUID: any;
-
+  time = {hour: 13, minute: 30};
 
   constructor(private route: ActivatedRoute, public activeService: ActiveService) {
     this.route.paramMap.subscribe((param: ParamMap) => {

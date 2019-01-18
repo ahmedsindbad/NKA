@@ -15,6 +15,9 @@
                 {{kid.Name}}
             </label>
         </div>&nbsp;
-        <button class="btn btn-success" type="button">Add eat</button>
+        <button class="btn btn-success" type="button">Add eating</button>
     </div><hr />
 </div>
+<ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+<hr>
+<pre>Selected time: {{time | json}}</pre>
