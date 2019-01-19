@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // Fierbase
 import { AngularFireModule } from '@angular/fire';
@@ -68,6 +69,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    NgbModule,
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features

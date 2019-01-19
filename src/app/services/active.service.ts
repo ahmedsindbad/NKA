@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { KID } from '../Kid/KID';
+import { EVENTS } from '../Activity/EVENTS';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators/index';
 
@@ -11,10 +12,21 @@ export class ActiveService {
 
   KidsCollection: AngularFirestoreCollection<KID>;
   Kids: Observable<any>;
-  coll: AngularFirestoreCollection<KID>;
+
+  eventsCollection: AngularFirestoreCollection<EVENTS>;
+  events: Observable<any>;
+
   constructor(public db: AngularFirestore) {
     // var query = citiesRef.where("capital", "==", true);
+    this.eventsCollection = db.collection<EVENTS>('Events');
   }
+
+AddEvent(event: EVENTS) {
+  this.eventsCollection.add(event);
+}
+UpdateEvent(event: EVENTS) {
+  this.eventsCollection.doc(event.key).update(event.eve);
+}
   GetItem(val: any) {
     this.KidsCollection = this.db.collection('Kids', ref => ref.where('KCGUID', '==', val));
 

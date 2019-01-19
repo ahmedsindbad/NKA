@@ -4,7 +4,7 @@
 
 <div class="container" style="text-align: center">
     <h3>Select kids</h3><hr />
-    <div class="[ form-group ]" *ngFor="let kid of KIDS">
+    <div class="[ form-group ]" *ngFor="let kid of KIDS; let i= index">
         <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success" autocomplete="off" />
         <div class="[ btn-group ]">
             <label for="fancy-checkbox-success" class="[ btn btn-success ]">
@@ -15,9 +15,17 @@
                 {{kid.Name}}
             </label>
         </div>&nbsp;
-        <button class="btn btn-success" type="button">Add eating</button>
+        <button class="btn btn-success" type="button" (click)= "onShow(kid)">Add eating</button><hr />
+
+        <hr>
     </div><hr />
+
+
+
+<!-- <button (click)= "getResult()">result</button> -->
+<label>Start Time</label>
+<ngb-timepicker [(ngModel)]="events.eve[0].starttime"></ngb-timepicker>
+<label>End Time</label>
+<ngb-timepicker [(ngModel)]="events.eve[0].endtime"></ngb-timepicker>
+
 </div>
-<ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
-<hr>
-<pre>Selected time: {{time | json}}</pre>
