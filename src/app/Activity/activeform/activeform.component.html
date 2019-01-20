@@ -1,31 +1,88 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div class="container" style="text-align: left">
+  <!-- <td>{{kid.Name}}</td>
+            <td><input type="checkbox" name="ch-{i}"></td>
+            <td><button type="button" class="btn btn-success" (click)= "onShow(kid)">Eating</button></td> -->
 
-<div class="container" style="text-align: center">
-    <h3>Select kids</h3><hr />
-    <div class="[ form-group ]" *ngFor="let kid of KIDS; let i= index">
-        <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success" autocomplete="off" />
-        <div class="[ btn-group ]">
-            <label for="fancy-checkbox-success" class="[ btn btn-success ]">
-                <span class="[ glyphicon glyphicon-ok ]"></span>
-                <span> </span>
-            </label>
-            <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
-                {{kid.Name}}
-            </label>
-        </div>&nbsp;
-        <button class="btn btn-success" type="button" (click)= "onShow(kid)">Add eating</button><hr />
-
-        <hr>
-    </div><hr />
+  <div class="accordion" id="accordionExample">
+    <div class="card" *ngFor="let kid of KIDS ; let i = index">
+      <div class="card-header" id="heading{{i}}">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target='#collapse{{i}}' aria-expanded="false"
+          attr.aria-controls="collapse{{i}}">
+            {{kid.Name}}
+          </button>
+        </h5>
+      </div>
+      <div id="collapse{{i}}" class="collapse show" attr.aria-labelledby="heading{{i}}" attr.data-parent="#accordionExample">
 
 
-
-<!-- <button (click)= "getResult()">result</button> -->
-<label>Start Time</label>
-<ngb-timepicker [(ngModel)]="events.eve[0].starttime"></ngb-timepicker>
-<label>End Time</label>
-<ngb-timepicker [(ngModel)]="events.eve[0].endtime"></ngb-timepicker>
+        <div class="container">
+          <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+                  <div class="panel panel-default">
+                      <!-- Default panel contents -->
+                      <div class="card-header" style="text-align: center">اختر نوع الاكل</div>
+                  
+                      <!-- List group -->
+                      <ul class="list-group">
+                          <li class="list-group-item">
+                              بسكوت
+                              <div class="material-switch float-right">
+                                  <input id="someSwitchOptionDefault{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <label for="someSwitchOptionDefault{{i}}" class="badge-primary"></label>
+                              </div>
+                          </li>
+                          <li class="list-group-item">
+                              عصير
+                              <div class="material-switch float-right">
+                                  <input id="someSwitchOptionPrimary{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <label for="someSwitchOptionPrimary{{i}}" class="badge-primary"></label>
+                              </div>
+                          </li>
+                          <li class="list-group-item">
+                              حلوى
+                              <div class="material-switch float-right">
+                                  <input id="someSwitchOptionSuccess{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <label for="someSwitchOptionSuccess{{i}}" class="badge-primary"></label>
+                              </div>
+                          </li>
+                          <li class="list-group-item">
+                              ساندوتش
+                              <div class="material-switch float-right">
+                                  <input id="someSwitchOptionInfo{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <label for="someSwitchOptionInfo{{i}}" class="badge-primary"></label>
+                              </div>
+                          </li>
+                          <li class="list-group-item">
+                              فاكهة
+                              <div class="material-switch float-right">
+                                  <input id="someSwitchOptionWarning{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <label for="someSwitchOptionWarning{{i}}" class="badge-primary"></label>
+                              </div>
+                          </li>
+                          <li class="list-group-item">
+                              اخرى
+                              <div class="material-switch float-right">
+                                  <input id="someSwitchOptionDanger{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <label for="someSwitchOptionDanger{{i}}" class="badge-primary"></label>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>            
+              </div>
+          </div>
+      </div>
+      
+        
+      </div>
+    </div>
+  </div>
 
 </div>
+<hr>
+
+
+<!-- <label>Start Time</label>
+<ngb-timepicker [(ngModel)]="events.eve[0].starttime" ng-style="text-align: right"></ngb-timepicker>
+<label>End Time</label>
+<ngb-timepicker [(ngModel)]="events.eve[0].endtime"></ngb-timepicker> -->

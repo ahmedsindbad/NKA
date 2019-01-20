@@ -18,30 +18,41 @@ export class ActiveformComponent implements OnInit {
     date: null,
     classid: null,
     kidid: null,
+    kidcode: null,
+    kidname: null,
     eating: [],
     eve: [{
         title: null,
+        description: null,
         starttime: [{hour: null, minute: null}],
         endtime: [{hour: null, minute: null}]
     }]
   };
+
   // timeStart = {hour: 12, minute: 5};
   // timeEnd = {hour: 13, minute: 30};
   constructor(private route: ActivatedRoute, public activeService: ActiveService) {
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.CGUID = param.get('CGUID');
     });
-   }
 
-  ngOnInit() {
     this.activeService.GetItem(this.CGUID).subscribe(kids => {
       console.log(kids);
       this.KIDS = kids;
     });
+   }
+
+  ngOnInit() {
+    // this.activeService.GetItem(this.CGUID).subscribe(kids => {
+    //   console.log(kids);
+    //   this.KIDS = kids;
+    // });
   }
 
 onShow(kid: KID) {
   console.log(this.events);
   console.log(kid);
 }
+
 }
+
