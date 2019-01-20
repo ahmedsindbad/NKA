@@ -12,7 +12,7 @@ import { EATING } from '../EATING';
 export class ActiveformComponent implements OnInit {
   KIDS: KID[];
   CGUID: any;
-
+  buttons = Array(500).fill(false);
   constructor(private route: ActivatedRoute, public activeService: ActiveService) {
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.CGUID = param.get('CGUID');
@@ -28,7 +28,7 @@ export class ActiveformComponent implements OnInit {
   }
 
 onTest(kid: any) {
-  this.KIDS['today'] = new Date().toLocaleDateString();
+  // this.KIDS['today'] = new Date().toLocaleDateString();
   console.log(kid);
   this.activeService.AddUpdateEating(kid);
 }

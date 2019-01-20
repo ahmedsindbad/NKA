@@ -68,7 +68,7 @@
                           </li>
                           <li class="list-group-item">
                             <div class="material-switch float-right">
-                                <button class="btn btn-primary" (click)="onTest(kid)">Submit</button>
+                                <button class="btn btn-primary" (click)="onTest(kid); buttons[i]=true" [disabled]="buttons[i]">Submit</button>
                             </div>
                         </li>
                       </ul>
