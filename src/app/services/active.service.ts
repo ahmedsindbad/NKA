@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule, } from '@angular/fire/firestore';
 import { KID } from '../Kid/KID';
-import { EVENTS } from '../Activity/EVENTS';
+import { EATING } from '../Activity/EATING';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators/index';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,20 +15,20 @@ export class ActiveService {
   KidsCollection: AngularFirestoreCollection<KID>;
   Kids: Observable<any>;
 
-  eventsCollection: AngularFirestoreCollection<EVENTS>;
-  events: Observable<any>;
-
+  eatingCollection: AngularFirestoreDocument;
+  // eats: Observable<KID[]>;
+  date = new Date().toDateString();
   constructor(public db: AngularFirestore) {
     // var query = citiesRef.where("capital", "==", true);
-    this.eventsCollection = db.collection<EVENTS>('Events');
+
+   this.eatingCollection = db.collection('EATINGS').doc(this.date);
+   // this.eats = this.eatingCollection.valueChanges();
   }
 
-AddEvent(event: EVENTS) {
-  this.eventsCollection.add(event);
+AddUpdateEating(KIDS: KID) {
+  this.eatingCollection.collection(KIDS.id).doc(KIDS.key).set(KIDS);
 }
-UpdateEvent(event: EVENTS) {
-  this.eventsCollection.doc(event.key).update(event.eve);
-}
+
   GetItem(val: any) {
     this.KidsCollection = this.db.collection('Kids', ref => ref.where('KCGUID', '==', val));
 

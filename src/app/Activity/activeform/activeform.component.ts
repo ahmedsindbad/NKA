@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { KID } from '../../Kid/KID';
 import { ActiveService } from '../../services/active.service';
-import { EVENTS } from '../EVENTS';
+import { EATING } from '../EATING';
 
 @Component({
   selector: 'app-activeform',
@@ -13,24 +13,6 @@ export class ActiveformComponent implements OnInit {
   KIDS: KID[];
   CGUID: any;
 
-  events: EVENTS = {
-    key: null,
-    date: null,
-    classid: null,
-    kidid: null,
-    kidcode: null,
-    kidname: null,
-    eating: [],
-    eve: [{
-        title: null,
-        description: null,
-        starttime: [{hour: null, minute: null}],
-        endtime: [{hour: null, minute: null}]
-    }]
-  };
-
-  // timeStart = {hour: 12, minute: 5};
-  // timeEnd = {hour: 13, minute: 30};
   constructor(private route: ActivatedRoute, public activeService: ActiveService) {
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.CGUID = param.get('CGUID');
@@ -43,16 +25,13 @@ export class ActiveformComponent implements OnInit {
    }
 
   ngOnInit() {
-    // this.activeService.GetItem(this.CGUID).subscribe(kids => {
-    //   console.log(kids);
-    //   this.KIDS = kids;
-    // });
   }
 
-onShow(kid: KID) {
-  console.log(this.events);
+onTest(kid: any) {
+  this.KIDS['today'] = new Date().toLocaleDateString();
   console.log(kid);
+  this.activeService.AddUpdateEating(kid);
+}
 }
 
-}
-
+// عمل بقى كلاس للايفنت لوحده او ازاى يلود فى الكونستراكتور لو موجود ويأبديت الفيو

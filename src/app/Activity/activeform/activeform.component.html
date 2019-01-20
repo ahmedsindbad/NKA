@@ -28,45 +28,49 @@
                           <li class="list-group-item">
                               بسكوت
                               <div class="material-switch float-right">
-                                  <input id="someSwitchOptionDefault{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <input id="someSwitchOptionDefault{{i}}" name="someSwitchOption{{i}}" type="checkbox" [(ngModel)]= "KIDS[i].Biscuits"/>
                                   <label for="someSwitchOptionDefault{{i}}" class="badge-primary"></label>
                               </div>
                           </li>
                           <li class="list-group-item">
                               عصير
                               <div class="material-switch float-right">
-                                  <input id="someSwitchOptionPrimary{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <input id="someSwitchOptionPrimary{{i}}" name="someSwitchOption{{i}}" type="checkbox" [(ngModel)]= "KIDS[i].juice"/>
                                   <label for="someSwitchOptionPrimary{{i}}" class="badge-primary"></label>
                               </div>
                           </li>
                           <li class="list-group-item">
                               حلوى
                               <div class="material-switch float-right">
-                                  <input id="someSwitchOptionSuccess{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <input id="someSwitchOptionSuccess{{i}}" name="someSwitchOption{{i}}" type="checkbox" [(ngModel)]= "KIDS[i].Dessert"/>
                                   <label for="someSwitchOptionSuccess{{i}}" class="badge-primary"></label>
                               </div>
                           </li>
                           <li class="list-group-item">
                               ساندوتش
                               <div class="material-switch float-right">
-                                  <input id="someSwitchOptionInfo{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <input id="someSwitchOptionInfo{{i}}" name="someSwitchOption{{i}}" type="checkbox" [(ngModel)]= "KIDS[i].Sandwich"/>
                                   <label for="someSwitchOptionInfo{{i}}" class="badge-primary"></label>
                               </div>
                           </li>
                           <li class="list-group-item">
                               فاكهة
                               <div class="material-switch float-right">
-                                  <input id="someSwitchOptionWarning{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
+                                  <input id="someSwitchOptionWarning{{i}}" name="someSwitchOption{{i}}" type="checkbox" [(ngModel)]= "KIDS[i].fruit"/>
                                   <label for="someSwitchOptionWarning{{i}}" class="badge-primary"></label>
                               </div>
                           </li>
                           <li class="list-group-item">
                               اخرى
                               <div class="material-switch float-right">
-                                  <input id="someSwitchOptionDanger{{i}}" name="someSwitchOption{{i}}" type="checkbox"/>
-                                  <label for="someSwitchOptionDanger{{i}}" class="badge-primary"></label>
+                                <input type="text" class="form-control" [(ngModel)]= "KIDS[i].other">
                               </div>
                           </li>
+                          <li class="list-group-item">
+                            <div class="material-switch float-right">
+                                <button class="btn btn-primary" (click)="onTest(kid)">Submit</button>
+                            </div>
+                        </li>
                       </ul>
                   </div>            
               </div>

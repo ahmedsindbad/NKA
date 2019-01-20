@@ -1,4 +1,4 @@
-export interface KID {
+export interface EATING {
     key?: string;
     Address?: string;
     Archived?: string;
@@ -17,5 +17,11 @@ export interface KID {
     TimeLeave?: string;
     WaitList?: string;
     id?: string;
+    today?: string;
     Biscuits?: string;
+    juice?: string;
+    Dessert?: string;
+    Sandwich?: string;
+    fruit?: string;
+    other?: string;
 }
