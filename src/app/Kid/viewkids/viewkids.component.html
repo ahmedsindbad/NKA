@@ -1,25 +1,66 @@
 
 <div *ngIf = "kids?.length > 0; else noKids">
-  <table class="table table-dark">
+  <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Code</th>
-        <th scope="col">Name</th>
-        <th scope="col">Info</th>
+        <th>الكود</th>
+        <th>اسم الطفل</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let kid of kids">
+      <tr *ngIf = "kid.id === kidid">
+        <td><button disabled class="btn btn-outline-info">{{kid.id}}</button></td>
+        <td>{{kid.Name}}</td>
+        <td><button type="button" class="btn btn-success" (click)= "onDetails(kid.KCGUID, kid.id)">Details</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="container" style="text-align: center"><h6>{{kidService.date}} - الفطور ليوم</h6></span>
+  <table class="table table-hover table-sm" >
+    <thead>
+      <tr>
+        <th scope="col">بسكويت</th>
+        <th scope="col">عصير</th>
+        <th scope="col">حلوى</th>
+        <th scope="col">ساندوتش</th>
+        <th scope="col">فاكهة</th>
+        <th scope="col">أخرى</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let eat of eatings; let ea = index">
+      <tr>
+        <td>{{eat.Biscuits}}</td>
+        <td>{{eat.juice}}</td>
+        <td>{{eat.Dessert}}</td>
+        <td>{{eat.Sandwich}}</td>
+        <td>{{eat.fruit}}</td>
+        <td>{{eat.other}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="container" style="text-align: center"><h6>{{kidService.date}} - النشاطات ليوم</h6></span>
+  <table class="table table-hover table-sm" >
+    <thead>
+      <tr>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
         <th scope="col">Activity</th>
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let kid of kids" >
-        <div *ngIf = "kid.id === id">
-        <th scope="row"><button disabled class="btn btn-outline-info">{{kid.id}}</button></th>
-        <td class="fit">{{kid.Name}}</td>
-        <th scope="col"><button type="button" class="btn btn-success" (click)= "onTest()">D</button></th>
-        <th scope="col"><button type="button" class="btn btn-success">A</button></th>
-      </div>
+      <tr *ngFor="let event of events; let i = index">
+        <td>{{event.timefrom}}</td>
+        <td>{{event.timeto}}</td>
+        <td>{{event.txtactivity}}</td>
       </tr>
     </tbody>
   </table>
+
+
+
 </div>
 
 <ng-template #noKids>
