@@ -1,0 +1,58 @@
+<div class="container">
+<span class="border border-info">Class Name : {{CLASSES.ClassName}}</span><hr>
+  <form #myForm="ngForm" (ngSubmit)='onSubmit()' novalidate>
+  <div class="form-group row">
+    <div class="col-8">
+      <input class="form-control" dir="rtl" type="time" value="08:00:00" id="example-time-inputfrom" name="timefrom" required [(ngModel)] = "EVENTS.timefrom">
+    </div>
+    <label for="example-time-inputfrom" dir="rtl" class="col-4 col-form-label">الوقت من :</label>
+  </div>
+  <div class="form-group row">
+    <div class="col-8">
+      <input class="form-control" type="time" dir="rtl" value="09:00:00" id="example-time-inputto" name="timeto" required [(ngModel)] = "EVENTS.timeto">
+    </div>
+    <label for="example-time-inputto" dir="rtl" class="col-4 col-form-label">الوقت الى :</label>
+  </div>
+  <div class="form-group row">
+    <div class="col-8">
+      <textarea lang="ar" dir="rtl" placeholder="اكتب النشاط هنا" id="example-texteara" name = "txtactivity" required [(ngModel)] = "EVENTS.txtactivity" [ngClass]= "{'form-control' : true, 'is-invalid' : !txtactivity?.valid && txtactivity?.touched,
+      'is-valid' : txtactivity?.valid && txtactivity?.touched }"></textarea>
+    </div>
+    <div *ngIf="txtactivity?.errors?.required && txtactivity?.touched" class="invalid-feedback">
+        Required valid Activity.
+      </div>
+    <div *ngIf="txtactivity?.errors?.minlength && txtactivity?.touched" class="invalid-feedback">
+        Activity required 5 character at least.
+      </div>
+    <label for="example-texteara" dir="rtl" class="col-4 col-form-label">النشاط :</label>
+  </div>
+  <div class="form-group row">
+      <div class="col-8">
+          <input class="btn btn-primary" [disabled]="!myForm.form.valid" type="submit" value="Save">
+      </div>
+    </div>
+</form><hr>
+
+<span class="container" style="text-align: center"><h6>{{dailyeventservice.date}} - النشاطات ليوم</h6></span>
+<table class="table table-hover table-sm" >
+  <thead>
+    <tr>
+      <th scope="col">من</th>
+      <th scope="col">الى</th>
+      <th scope="col">النشاط</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of eventos; let i = index">
+      <td>{{event.timefrom}}</td>
+      <td>{{event.timeto}}</td>
+      <td>{{event.txtactivity}}</td>
+      <td><button class="btn btn-danger" (click)= "onEventDelete(event.id)">حذف</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+

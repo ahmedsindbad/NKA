@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { KidService } from './services/kid.service';
 import { ClassService } from './services/class.service';
 import { ActiveService } from './services/active.service';
+import { DailyeventService } from './services/dailyevent.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { NewkidDetailComponent } from './newkid/newkid-detail/newkid-detail.comp
 import { NewkidFormComponent } from './newkid/newkid-form/newkid-form.component';
 import { SelectclassComponent } from './Activity/selectclass/selectclass.component';
 import { ActiveformComponent } from './Activity/activeform/activeform.component';
+import { DailyeventsComponent } from './Activity/dailyevents/dailyevents.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' , pathMatch: 'full' },
@@ -45,7 +47,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'addkid', component: AddkidComponent },
   { path: 'selectclass', component: SelectclassComponent },
-  { path: 'selectclass/:CGUID', component: ActiveformComponent }
+  { path: 'selectclass/:CGUID', component: ActiveformComponent },
+  { path: 'dailyevents/:CGUID', component: DailyeventsComponent }
 ];
 
 
@@ -65,7 +68,8 @@ const routes: Routes = [
     NewkidDetailComponent,
     NewkidFormComponent,
     SelectclassComponent,
-    ActiveformComponent
+    ActiveformComponent,
+    DailyeventsComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +82,7 @@ const routes: Routes = [
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [KidService, ClassService, ActiveService],
+  providers: [KidService, ClassService, ActiveService, DailyeventService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

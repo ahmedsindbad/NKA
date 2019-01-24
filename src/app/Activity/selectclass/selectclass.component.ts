@@ -23,7 +23,7 @@ export class SelectclassComponent implements OnInit {
   ngOnInit() {
     this.classService.GetItem().subscribe(Classes => {
       this.classes = Classes;
-      console.log(this.classes);
+      // console.log(this.classes);
     });
   }
   onSubmit() {
@@ -31,8 +31,17 @@ export class SelectclassComponent implements OnInit {
       this.errorValidate = 'لابد من اختيار الفصل أولا';
     } else {
       this.errorValidate = 'select one class to add activity to it.';
-      alert(this.selectedValue);
+      // alert(this.selectedValue);
       this.router.navigate(['/selectclass', this.selectedValue]);
+    }
+  }
+  onSubmit2() {
+    if (this.selectedValue === null) {
+      this.errorValidate = 'لابد من اختيار الفصل أولا';
+    } else {
+      this.errorValidate = 'select one class to add activity to it.';
+      // alert(this.selectedValue);
+      this.router.navigate(['/dailyevents', this.selectedValue]);
     }
   }
 }
