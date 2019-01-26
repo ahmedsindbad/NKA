@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -20,7 +20,7 @@ import { DailyeventService } from './services/dailyevent.service';
 
 // Components
 import { AppComponent } from './app.component';
-import { AddkidComponent } from './kid/addkid/addkid.component';
+// import { AddkidComponent } from './kid/addkid/addkid.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ApplicationComponent } from './application/application.component';
@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'learn', component: LearnComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'addkid', component: AddkidComponent },
+  // { path: 'addkid', component: AddkidComponent },
   { path: 'selectclass', component: SelectclassComponent },
   { path: 'selectclass/:CGUID', component: ActiveformComponent },
   { path: 'dailyevents/:CGUID', component: DailyeventsComponent }
@@ -62,7 +62,7 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    AddkidComponent,
+    // AddkidComponent,
     ViewkidsComponent,
     NewkidsListComponent,
     NewkidDetailComponent,

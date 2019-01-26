@@ -13,31 +13,33 @@ import { Observable } from 'rxjs';
 export class DailyeventsComponent implements OnInit {
   CGUID: any;
   eventos: EVENT[];
-  CLASSES: CLASS[] = [{
-    key: null,
-    CDGUID: null,
-    CGUID: null,
-    ClassName: null,
-    DepartID: null,
-    id: null
-  }];
+  CLASSES: CLASS;
   EVENTS: EVENT;
   constructor(private route: ActivatedRoute, public dailyeventservice: DailyeventService) {
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.CGUID = param.get('CGUID');
     });
 
+    this.CLASSES = {
+      key: '',
+      CDGUID: '',
+      CGUID: '',
+      ClassName: '',
+      DepartID: '',
+      id: ''
+    };
+    this.EVENTS = {
+      timefrom: '08:00',
+      timeto: '09:00',
+      txtactivity: ''
+  };
     this.dailyeventservice.GetClassByID(this.CGUID).subscribe(Class => {
     // console.log(Class);
     this.CLASSES = Class[0];
     // console.log(this.CLASSES);
     });
 
-    this.EVENTS = {
-        timefrom: '08:00',
-        timeto: '09:00',
-        txtactivity: null
-    };
+
 
     this.dailyeventservice.GetEventsByClassId(this.CGUID).subscribe(Eventos => {
        // console.log(Eventos);
@@ -55,7 +57,7 @@ onSubmit() {
     this.EVENTS = {
         timefrom: '08:00',
         timeto: '09:00',
-        txtactivity: null
+        txtactivity: ''
     };
     // this.router.navigate(['viewkids']);
   } else {

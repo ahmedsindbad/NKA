@@ -15,15 +15,8 @@
   </div>
   <div class="form-group row">
     <div class="col-8">
-      <textarea lang="ar" dir="rtl" placeholder="اكتب النشاط هنا" id="example-texteara" name = "txtactivity" required [(ngModel)] = "EVENTS.txtactivity" [ngClass]= "{'form-control' : true, 'is-invalid' : !txtactivity?.valid && txtactivity?.touched,
-      'is-valid' : txtactivity?.valid && txtactivity?.touched }"></textarea>
+      <textarea lang="ar" dir="rtl" placeholder="اكتب النشاط هنا" class="form-control" id="example-texteara" name = "txtactivity" required [(ngModel)] = "EVENTS.txtactivity"></textarea>
     </div>
-    <div *ngIf="txtactivity?.errors?.required && txtactivity?.touched" class="invalid-feedback">
-        Required valid Activity.
-      </div>
-    <div *ngIf="txtactivity?.errors?.minlength && txtactivity?.touched" class="invalid-feedback">
-        Activity required 5 character at least.
-      </div>
     <label for="example-texteara" dir="rtl" class="col-4 col-form-label">النشاط :</label>
   </div>
   <div class="form-group row">
