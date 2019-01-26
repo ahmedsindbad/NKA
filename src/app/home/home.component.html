@@ -1,17 +1,12 @@
-
-<form>
-  <div class="col-auto" style="text-align: center">
-    <img src="../../assets/img/nobles.png" width="150" height="200"><span>
-    <img src="../../assets/img/loading.gif" width="300" height="250"></span>
-    <label class="sr-only" for="inlineFormInputGroup">Kid Code</label>
-    <div class="input-group mb-2">
-      <div class="input-group-prepend">
-        <div class="input-group-text">Code</div>
-      </div>
-      <input [(ngModel)] = "CodeKid" name = "CodeKid" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Kid Code">
-    </div>
+<div class="card mx-auto" style="width: 20rem;">
+  <img class="card-img-top" src="../../assets/img/nobles.png" alt="Nobles Kids Academy Logo">
+  <div class="card-body">
+    <h6 class="card-title" style="text-align: center"><kbd>Search for your kids by code</kbd></h6>
+    <form #myForm = "ngForm" (ngSubmit)= "onRoutActivity()" novalidate>
+      <input [(ngModel)]="CodeKid" name="CodeKid" type="text" class="form-control" id="inlineFormInputGroup"
+        placeholder="Kid code's here .....">
+      <button type="submit" class="btn btn-success mb-2 btn-block">Search</button>
+    </form>
   </div>
-  <div class="col-auto">
-    <button type="button" class="btn btn-success mb-2" (click)="onRoutActivity()">Get</button>
-  </div>
-</form>
+  <img class="mx-auto" src="../../assets/img/loading.gif" width="150" height="100">
+</div>

@@ -7,7 +7,7 @@
     <div class="input-group">
       <select class="custom-select" id="selectedValue" name="selectedValue" required [(ngModel)]= "selectedValue">
         <option [ngValue]="null" selected>......اختر</option>
-        <option [ngValue]="class.CGUID" *ngFor="let class of classes">{{class.ClassName}}</option>
+        <option [ngValue]="class.CGUID" *ngFor="let class of classService.classes">{{class.ClassName}}</option>
       </select>
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" (click)= "onSubmit()">الاكل</button>

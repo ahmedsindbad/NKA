@@ -20,7 +20,6 @@ import { DailyeventService } from './services/dailyevent.service';
 
 // Components
 import { AppComponent } from './app.component';
-// import { AddkidComponent } from './kid/addkid/addkid.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ApplicationComponent } from './application/application.component';
@@ -35,6 +34,7 @@ import { NewkidFormComponent } from './newkid/newkid-form/newkid-form.component'
 import { SelectclassComponent } from './Activity/selectclass/selectclass.component';
 import { ActiveformComponent } from './Activity/activeform/activeform.component';
 import { DailyeventsComponent } from './Activity/dailyevents/dailyevents.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' , pathMatch: 'full' },
@@ -45,10 +45,14 @@ const routes: Routes = [
   { path: 'learn', component: LearnComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  // { path: 'addkid', component: AddkidComponent },
   { path: 'selectclass', component: SelectclassComponent },
   { path: 'selectclass/:CGUID', component: ActiveformComponent },
-  { path: 'dailyevents/:CGUID', component: DailyeventsComponent }
+  { path: 'dailyevents/:CGUID', component: DailyeventsComponent },
+
+
+
+  // Must be last component
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 
@@ -62,14 +66,14 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    // AddkidComponent,
     ViewkidsComponent,
     NewkidsListComponent,
     NewkidDetailComponent,
     NewkidFormComponent,
     SelectclassComponent,
     ActiveformComponent,
-    DailyeventsComponent
+    DailyeventsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

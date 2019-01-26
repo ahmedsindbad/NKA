@@ -10,7 +10,7 @@ import { ClassService } from '../../services/class.service';
 })
 export class SelectclassComponent implements OnInit {
 
-  classes: CLASS[];
+  // classes: CLASS[];
   selectedValue: any = null;
   errorValidate: any = 'select one class to add activity to it.';
   // const
@@ -21,10 +21,10 @@ export class SelectclassComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.classService.GetItem().subscribe(Classes => {
-      this.classes = Classes;
-      // console.log(this.classes);
-    });
+    // this.classService.GetItem().subscribe(Classes => {
+    //   this.classes = Classes;
+    //   // console.log(this.classes);
+    // });
   }
   onSubmit() {
     if (this.selectedValue === null) {

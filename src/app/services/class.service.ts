@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators/index';
 })
 export class ClassService {
 
+  classes: CLASS[];
   ClassesCollection: AngularFirestoreCollection<CLASS>;
   Classes: Observable<CLASS[]>;
   selectedValue: any;
@@ -21,6 +22,12 @@ export class ClassService {
         return { id, ...data };
       }))
     );
+
+    this.Classes.subscribe(Classes => {
+      this.classes = Classes;
+      // console.log(this.classes);
+    });
+
    }
 
 
