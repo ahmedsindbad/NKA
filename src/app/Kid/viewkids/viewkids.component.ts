@@ -22,29 +22,38 @@ export class ViewkidsComponent implements OnInit {
   classes: CLASS[];
 
   kidid: any;
+  showSpinner = true;
   // const
   constructor(public kidService: KidService, private route: ActivatedRoute) {
+    this.showSpinner = true;
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.kidid = param.get('id');
+      this.showSpinner = false;
     });
   }
 
   ngOnInit() {
 
     this.kidService.GetSampleKids(this.kidid).subscribe(Kids => {
+      this.showSpinner = true;
       // console.log(Kids);
       this.kids = Kids;
+      this.showSpinner = false;
     });
 
 
   }
   onDetails(KCGUID: string, kidid: string) {
+    this.showSpinner = true;
     this.kidService.GetEventKids(KCGUID).subscribe(events => {
       this.events = events;
+      this.showSpinner = false;
     });
     this.kidService.GetEatKids(kidid).subscribe(eats => {
+      this.showSpinner = true;
       this.eatings = eats;
-      console.log(this.eatings);
+      this.showSpinner = false;
+      // console.log(this.eatings);
     });
 
     }

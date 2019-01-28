@@ -9,11 +9,13 @@ import { map } from 'rxjs/operators/index';
 })
 export class ClassService {
 
+  showSpinner = true;
   classes: CLASS[];
   ClassesCollection: AngularFirestoreCollection<CLASS>;
   Classes: Observable<CLASS[]>;
   selectedValue: any;
   constructor(public db: AngularFirestore) {
+    this.showSpinner = true;
     this.ClassesCollection = this.db.collection<CLASS>('Classes');
     this.Classes = this.ClassesCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -27,7 +29,7 @@ export class ClassService {
       this.classes = Classes;
       // console.log(this.classes);
     });
-
+    this.showSpinner = false;
    }
 
 

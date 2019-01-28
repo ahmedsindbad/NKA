@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment.prod';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Fierbase
 import { AngularFireModule } from '@angular/fire';
@@ -35,6 +36,7 @@ import { SelectclassComponent } from './Activity/selectclass/selectclass.compone
 import { ActiveformComponent } from './Activity/activeform/activeform.component';
 import { DailyeventsComponent } from './Activity/dailyevents/dailyevents.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' , pathMatch: 'full' },
@@ -48,6 +50,7 @@ const routes: Routes = [
   { path: 'selectclass', component: SelectclassComponent },
   { path: 'selectclass/:CGUID', component: ActiveformComponent },
   { path: 'dailyevents/:CGUID', component: DailyeventsComponent },
+  // { path: 'loading-spinner', component: LoadingSpinnerComponent },
 
 
 
@@ -73,7 +76,8 @@ const routes: Routes = [
     SelectclassComponent,
     ActiveformComponent,
     DailyeventsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +89,7 @@ const routes: Routes = [
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
+    // BrowserAnimationsModule
   ],
   providers: [KidService, ClassService, ActiveService, DailyeventService],
   bootstrap: [AppComponent]

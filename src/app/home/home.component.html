@@ -1,9 +1,10 @@
 <div class="card mx-auto" style="width: 20rem;">
   <img class="card-img-top" src="../../assets/img/nobles.png" alt="Nobles Kids Academy Logo">
+  test code [2,10,11,13,14,15]
   <div class="card-body">
     <h6 class="card-title" style="text-align: center"><kbd>Search for your kids by code</kbd></h6>
     <form #myForm = "ngForm" (ngSubmit)= "onRoutActivity()" novalidate>
-      <input [(ngModel)]="CodeKid" name="CodeKid" type="text" class="form-control" id="inlineFormInputGroup"
+      <input (focus)="scrollTo('inlineFormInputGroup')" [(ngModel)]="CodeKid" name="CodeKid" type="text" class="form-control" id="inlineFormInputGroup"
         placeholder="Kid code's here .....">
       <button type="submit" class="btn btn-success mb-2 btn-block">Search</button>
     </form>
