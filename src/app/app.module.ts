@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment.prod';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Fierbase
 import { AngularFireModule } from '@angular/fire';
@@ -88,8 +88,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
-    // BrowserAnimationsModule
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    BrowserAnimationsModule
   ],
   providers: [KidService, ClassService, ActiveService, DailyeventService],
   bootstrap: [AppComponent]
