@@ -18,6 +18,7 @@ import { KidService } from './services/kid.service';
 import { ClassService } from './services/class.service';
 import { ActiveService } from './services/active.service';
 import { DailyeventService } from './services/dailyevent.service';
+import { UserService } from './services/user.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -86,12 +87,12 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFirestoreModule.enablePersistence(), // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     BrowserAnimationsModule
   ],
-  providers: [KidService, ClassService, ActiveService, DailyeventService],
+  providers: [KidService, ClassService, ActiveService, DailyeventService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
