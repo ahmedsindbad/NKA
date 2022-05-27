@@ -3,9 +3,10 @@ import { of as observableOf, Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore , AngularFirestoreDocument } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
-import * as firebase from 'firebase/app';
+//import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import firebase from "firebase/app";
 
 interface User {
 uid: string;
@@ -49,7 +50,7 @@ export class UserService {
     return this.oAuthLogin(provider);
   }
   private oAuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
+    return this.afAuth.signInWithPopup(provider)
     .then((credential) => { this.updateUserDate(credential.user); });
   }
   private updateUserDate(user) {
@@ -67,6 +68,6 @@ console.log(data);
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.afAuth.signOut();
   }
 }
